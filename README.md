@@ -8,7 +8,7 @@ By Bashir Sadeghi, Runyi Yu, and Vishnu Naresh Boddeti
 0. [Setup](#setup)
 0. [Requirements](#requirements)
 0. [Commands to Reproduce Results in Paper](#commands-to-reproduce-results-in-paper)
-0. [Usage](#general-usage-instructions)
+0. [General Usage Instructions](#general-usage-instructions)
 
 ### Introduction
 
