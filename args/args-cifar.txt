@@ -1,0 +1,77 @@
+[Arguments]
+
+port = 8097
+env = main
+same_env = Yes
+log_type = progressbar
+save_results = Yes
+
+######################################################### Kernelization: "Linear", "Polynomial" or "Gaussian"
+
+####   K = x^T*y                     ### Linear     ### Do not comment out!!!!!
+####   K = (x^T*y + c)^d             ### Polynomial ### Do not comment out!!!!!
+####   K = exp(-||x - y||^2 / sigma) ### Gaussian   ### Do not comment out!!!!!
+
+########################################################################### Cifar100 Dataset
+dataroot = ./data/Cifar100/
+
+dataset_train = Cifar100
+input_filename_train = ./train_input
+label_filename_train = ./train_label
+
+dataset_test = Cifar100
+input_filename_test = ./test_input
+label_filename_test = ./test_label
+
+r = 19
+ndim = 64
+
+############# It is better to keep 'batch_size_e' as large as data size
+
+### encoder
+
+#kernel = Linear
+kernel = Polynomial
+c = 0.5
+d = 5
+
+batch_size_e = 50000
+#batch_size_e = 25000
+#batch_size_e = 12500
+#batch_size_e= 10000
+#batch_size_e= 6250
+lambd = 0.1
+
+##### Real Adversary & Target
+batch_size_train = 125
+batch_size_test = 10000
+
+nclasses_A = 100
+nclasses_T = 20
+total_classes = 100
+
+loss_type_A = Classification
+loss_type_T = Classification
+
+########################################################## General Setting
+
+model_type_A = Adversary
+model_type_T = Target
+variance = 1
+evaluation_type_A = Classification
+evaluation_type_T = Classification
+
+manual_seed = 1
+nepochs = 1000
+
+optim_method = Adam
+optim_options = {"weight_decay": 0.00001, "betas": [0.9, 0.999]}
+
+learning_rate_T = 1e-1
+learning_rate_A = 2e-2
+
+scheduler_method = MultiStepLR
+scheduler_options = {"milestones": [150, 200, 300, 400, 500, 600, 700, 800], "gamma": 0.6}
+
+ngpu = 1
+nthreads = 8

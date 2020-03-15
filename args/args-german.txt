@@ -1,0 +1,73 @@
+[Arguments]
+
+port = 8097
+env = main
+same_env = Yes
+log_type = progressbar
+save_results = Yes
+
+######################################################### Kernelization: "Linear", "Polynomial" or "Gaussian"
+
+####   K = x^T*y                     ### Linear     ### Do not comment out!!!!!
+####   K = (x^T*y + c)^d             ### Polynomial ### Do not comment out!!!!!
+####   K = exp(-||x - y||^2 / sigma) ### Gaussian   ### Do not comment out!!!!!
+
+########################################################################### German Dataset
+dataroot = ./data/German/
+
+dataset_train = German
+input_filename_train = ./train_input
+label_filename_train = ./train_label
+
+dataset_test = German
+input_filename_test = ./test_input
+label_filename_test = ./test_label
+
+r = 1
+ndim = 24
+german_seed = 1
+
+############# It is better to keep 'batch_size_e' as large as data size
+
+### encoder
+
+#kernel = Linear
+kernel = Gaussian
+sigma = 0.8
+
+batch_size_e = 700
+lambd = 0.1
+
+##### Real Adversary & Target
+batch_size_train = 100
+batch_size_test = 300
+
+nclasses_A = 2
+nclasses_T = 2
+total_classes = 2
+
+loss_type_A = Classification
+loss_type_T = Classification
+
+########################################################## General Setting
+
+model_type_A = Adversary
+model_type_T = Target
+variance = 1
+evaluation_type_A = Classification
+evaluation_type_T = Classification
+
+manual_seed = 1
+nepochs = 1000
+
+optim_method = Adam
+optim_options = {"weight_decay": 0.00001, "betas": [0.9, 0.999]}
+
+learning_rate_T = 1e-1
+learning_rate_A = 2e-2
+
+scheduler_method = MultiStepLR
+scheduler_options = {"milestones": [150, 200, 300, 400, 500, 600, 700, 800], "gamma": 0.6}
+
+ngpu = 1
+nthreads = 8
