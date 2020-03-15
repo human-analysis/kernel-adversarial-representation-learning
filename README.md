@@ -6,6 +6,7 @@ By Bashir Sadeghi, Runyi Yu, and Vishnu Naresh Boddeti
 0. [Introduction](#introduction)
 0. [Citation](#citation)
 0. [Requirements](#requirements)
+0. [Commands to Reproduce Results in Paper](#reproduce)
 0. [Usage](#usage)
 
 ### Introduction
@@ -44,31 +45,31 @@ First, you need to download PyTorchNet by calling the following command:
 4. Check `Requirements.txt` for detailed dependencies.
 
 ### Commands to Reproduce Results in Paper
-## Synthetic Gaussian Dataset
+#### Synthetic Gaussian Dataset
 ~~~~
 $ python3 -m visdom.server
 $ python3 main.py --args args/args-gaussian.txt
 ~~~~
 
-## Adult Dataset
+#### Adult Dataset
 ~~~~
 $ python3 -m visdom.server
 $ python3 main.py --args args/args-adult.txt
 ~~~~
 
-## German Dataset
+#### German Dataset
 ~~~~
 $ python3 -m visdom.server
 $ python3 main.py --args args/args-german.txt
 ~~~~
 
-## Yale-B
+#### Yale-B
 ~~~~
 $ python3 -m visdom.server
 $ python3 main.py --args args/args-yaleb.txt
 ~~~~
 
-## CIFAR-100
+#### CIFAR-100
 ~~~~
 $ python3 -m visdom.server
 $ python3 main.py --args args/args-cifar.txt
