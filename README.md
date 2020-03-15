@@ -5,6 +5,7 @@ By Bashir Sadeghi, Runyi Yu, and Vishnu Naresh Boddeti
 ## Contents
 0. [Introduction](#introduction)
 0. [Citation](#citation)
+0. [Setup](#setup)
 0. [Requirements](#requirements)
 0. [Commands to Reproduce Results in Paper](#reproduce)
 0. [Usage](#usage)
